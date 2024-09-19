@@ -91,6 +91,10 @@ int main()
 
 int main()
 {
+    int b1, b2;
+    cin >> b1 >> b2;
+    int h1, h2;
+    cin >> h1 >> h2;
 
     return 0;
 }
