@@ -88,14 +88,109 @@ int main()
 }
 */
 
+int a1[20][20] = {1};
+void modifyhorse(int(* arr)[20], int h1, int h2)//对马的特殊操作
+{
+    arr[h1 + 1][h2 + 2] = 100;
+    arr[h1 + 2][h2 + 1] = 100;
+    if ((h1 - 1) >= 0)
+    {
+        arr[h1 - 1][h2 + 2] = 100;
+    }
+    if ((h2 - 2) >= 0) 
+    {
+        arr[h1 + 1][h2 - 2] = 100;
+    }
+    if ((h1 - 1) >= 0 && (h2 - 2) >= 0)
+    {
+        arr[h1 - 1][h2 - 2] = 100;
+    }
+    if ((h1 - 2) >= 0)
+    {
+        arr[h1 - 2][h2 + 1] = 100;
+    }
+    if ((h2 - 1) >= 0)
+    {
+        arr[h1 + 2][h2 - 1] = 100;
+    }
+    if ((h2 - 1) >= 0 && (h1 - 2) >= 0)
+    {
+        arr[h1 - 2][h2 - 1] = 100;
+    }
+    arr[h1][h2] = 100;
+}
+void finalends(int(*arr)[20])
+{
+    for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            if(arr[i][j]==100)
+            {
+                continue;
+            }
+            if(i==0&&j==0)
+            {
+                continue;
+            }
+            else if ((i - 1) < 0)
+            {
+                arr[i][j] = arr[i][j - 1];
 
+            }
+            else if ((j - 1) < 0)
+            {
+                arr[i][j] = arr[i - 1][j];
+
+            }
+            else
+            {
+                if (arr[i - 1][j] != 100 && arr[i][j - 1] != 100)
+                {
+                    arr[i][j] = arr[i - 1][j] + arr[i][j - 1];
+                }
+
+                if (arr[i-1][j]==100)
+                {
+                    arr[i][j] = arr[i][j - 1];
+                }
+                if (arr[i ][j-1] == 100)
+                {
+                    arr[i][j] = arr[i-1][j ];
+                }
+            }
+        }
+    }
+}
 int main()
 {
     int b1, b2;
     cin >> b1 >> b2;
     int h1, h2;
     cin >> h1 >> h2;
+    modifyhorse(a1, h1, h2);
+    finalends(a1);
+ /*   for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            cout << a1[i][j] << endl;
 
+        }
+    }
+ 
+    
+      for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            cout << a1[i][j] << " ";
+
+        }
+        cout << endl;
+    }
+ */
+    cout << a1[b1][b2];
     return 0;
 }
 
