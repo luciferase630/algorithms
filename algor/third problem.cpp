@@ -19,35 +19,27 @@ void initblocked(bool blocked[][21], int h1, int h2)//可以不指定行
             blocked[h1 + dx[i]][h2 + dy[i]] = true;//此坐标显示为被控制
     }
 }
-void problemfixer(ll arr[][21], int b1, int b2)//还是这块写的不好，这初始化没问题
+void problemfixer(ll arr[][21], int b1, int b2)//还是这块写的不好，这前面的初始化没问题
 {
-    for (int i = 0; i < 21; i++)
+    for (int i = 0; i <= b1; i++)
     {
-        for (int j = 0; j < 21; j++)//循环到b1 b2应该就行
+        for (int j = 0; j <= b2; j++)//循环到b1 b2应该就行
         {
-            if (blocked[i][j] == true)
+            if (blocked[i][j] == true)//被控制就跳过
             {
                 continue;
             }
-            if ((j - 1) < 0)//小心边上数组越界情况
+            if (i == 0 && j == 0)//第一个要跳过
             {
-                arr[i][j] = arr[i - 1][j];
-            }
-            if ((i - 1) < 0)
-            {
-                arr[i][j] += arr[i][j - 1];
-            }
-            if (blocked[i - 1][j] == true)//某一边被控制就跳过
-            {
-                arr[i][j] += arr[i][j - 1];
-            }
-            if (blocked[i][j - 1] == true)//
+                continue;
+            }//就是从这里开始逻辑开始乱了的
+            if (i > 0)//神之一手
             {
                 arr[i][j] += arr[i - 1][j];
             }
-            if (blocked[i][j - 1] == false && blocked[i - 1][j] == false)
+            if (j > 0)
             {
-                arr[i][j] = arr[i - 1][j] + arr[i][j - 1];
+                arr[i][j] += arr[i][j - 1];
             }
         }
     }
@@ -67,16 +59,8 @@ int main() {
     else
     {
         problemfixer(arr, b1, b2);
-        //   cout << arr[b1][b2];
+        cout << arr[b1][b2] << endl;
     }
-    for (int i = 0; i < 20; i++)
-    {
-        for (int j = 0; j < 20; j++)
-        {
-            cout << arr[i][j] << " ";
 
-        }
-        cout << endl;
-    }
     return 0;
 }
