@@ -125,11 +125,11 @@ void finalends(int(*arr)[21])
     {
         for (int j = 0; j < 21; j++)
         {
-            if(arr[i][j]==100)
+            if (arr[i][j] == 100)
             {
                 continue;
             }
-            if(i==0&&j==0)
+            if (i == 0 && j == 0)
             {
                 continue;
             }
@@ -150,13 +150,13 @@ void finalends(int(*arr)[21])
                     arr[i][j] = arr[i - 1][j] + arr[i][j - 1];
                 }
 
-                if (arr[i-1][j]==100)
+                if (arr[i - 1][j] == 100)
                 {
                     arr[i][j] = arr[i][j - 1];
                 }
-                if (arr[i ][j-1] == 100)
+                if (arr[i][j - 1] == 100)
                 {
-                    arr[i][j] = arr[i-1][j ];
+                    arr[i][j] = arr[i - 1][j];
                 }
             }
         }
@@ -197,3 +197,4 @@ int main()
 //问题1 没有意识到20，20，实际上需要21个数组元素
 //问题2 把动态规划用的数组和block的数组合在一起了
 //问题3 没有考虑初始值，最开始的点要是被控制，应该就直接不能走
+//对于累加理解不清晰

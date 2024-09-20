@@ -61,6 +61,6 @@ int main() {
         problemfixer(arr, b1, b2);
         cout << arr[b1][b2] << endl;
     }
-
+    int a2;
     return 0;
 }
