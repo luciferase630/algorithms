@@ -62,5 +62,6 @@ int main() {
         cout << arr[b1][b2] << endl;
     }
     int a2;
+    int a3;
     return 0;
 }
