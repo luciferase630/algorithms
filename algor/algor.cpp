@@ -88,8 +88,8 @@ int main()
 }
 */
 
-int a1[20][20] = {1};
-void modifyhorse(int(* arr)[20], int h1, int h2)//对马的特殊操作
+int a1[21][21] = {1};// first  修改点，因为忘记包含2121了
+void modifyhorse(int(* arr)[21], int h1, int h2)//对马的特殊操作
 {
     arr[h1 + 1][h2 + 2] = 100;
     arr[h1 + 2][h2 + 1] = 100;
@@ -119,11 +119,11 @@ void modifyhorse(int(* arr)[20], int h1, int h2)//对马的特殊操作
     }
     arr[h1][h2] = 100;
 }
-void finalends(int(*arr)[20])
+void finalends(int(*arr)[21])
 {
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 21; i++)
     {
-        for (int j = 0; j < 20; j++)
+        for (int j = 0; j < 21; j++)
         {
             if(arr[i][j]==100)
             {
@@ -194,4 +194,6 @@ int main()
     return 0;
 }
 
-
+//问题1 没有意识到20，20，实际上需要21个数组元素
+//问题2 把动态规划用的数组和block的数组合在一起了
+//问题3 没有考虑初始值，最开始的点要是被控制，应该就直接不能走
