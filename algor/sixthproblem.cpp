@@ -56,7 +56,7 @@ void dfs(int n) {
     for (int i = path.empty() ? 1 : path.back(); i <= n; i++)
     {
         path.push_back(i);
-        dfs(n - i);
+        dfs(n - i);//我没有进行判断n -i是否大于0,有点漏洞？也许这个n-i永远就不可能小于0，因为i是n里面拆出来的啊
         //这步要回溯
         path.pop_back();//最后一位给他pop了
     }
