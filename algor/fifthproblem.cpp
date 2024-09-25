@@ -37,13 +37,10 @@ int main() {
 	vector<int>path;
 	findpartitions(n, result, path);
 	sort(result.begin(), result.end());//迭代器的使用
-/*	for (const string ai : result)
+	for (const string ai : result)
 	{
 		cout << ai << endl;
-	}*/
-	for (int i = 0; i < result.size(); i++)
-	{
-		cout << result[i] << endl;
 	}
+
 	return 0;
 }
