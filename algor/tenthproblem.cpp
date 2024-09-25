@@ -20,14 +20,16 @@ void dfs(int x)//x代表第几个位置
 		cout << endl;
 		return;
 	}
-	for (int i = path[len]; i <=c1; i++)
+	for (int i = path[len]; i <=c1; i++)//经典字典序
 	{
 		if (!state[i])//如果说这个位置没有填东西
 		{
 			state[i] = true;//那么就给他填东西
 			len++;
-			path[len] = i;//给它第一个位置填i，从1开始循环嘛
+			path[len] = i;//给它第一个位置填i，从i开始循环嘛//i一定要从path[len]开始
+			cout << "dfs(" << x + 1 << ")"<< endl;
 			dfs(x + 1);
+			//cout << "回溯"<< " "<< endl;
 			state[i] = false;//这两步恢复现场
 		//这个应该可以覆盖	path[len] = 0;
 			len--;//恢复现场
