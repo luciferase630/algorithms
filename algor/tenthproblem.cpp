@@ -27,7 +27,8 @@ void dfs(int x)//x代表第几个位置
 			state[i] = true;//那么就给他填东西
 			len++;
 			path[len] = i;//给它第一个位置填i，从i开始循环嘛//i一定要从path[len]开始
-			cout << "dfs(" << x + 1 << ")"<< endl;
+			//这一步隐形给这个玩意递增了，因为它在循环里
+			//cout << "dfs(" << x + 1 << ")"<< endl;//没法调试会被顶掉
 			dfs(x + 1);
 			//cout << "回溯"<< " "<< endl;
 			state[i] = false;//这两步恢复现场
